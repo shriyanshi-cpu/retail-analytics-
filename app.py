@@ -21,12 +21,12 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-from src.data_cleaning import clean_data
-from src.eda_visualization import (
+from data_cleaning import clean_data
+from eda_visualization import (
     missing_value_summary, numeric_summary, revenue_over_time,
     category_breakdown, country_breakdown, correlation_matrix, detect_outlier_rows,
 )
-from src.prediction import build_prediction_dataset, train_prediction_model
+from prediction import build_prediction_dataset, train_prediction_model
 
 st.set_page_config(page_title="Retail Analytics: Cleaning, Viz & Prediction", page_icon="🧹", layout="wide")
 
@@ -38,7 +38,7 @@ st.caption(
 
 
 @st.cache_data(show_spinner=False)
-def load_raw(path="data/raw_sales_data.csv"):
+def load_raw(path="raw_sales_data.csv"):
     return pd.read_csv(path)
 
 
